@@ -1,0 +1,147 @@
+PROJECT BRIEF: MATFYZ QUANT CLUB WEBSITE
+==========================================
+
+OVERVIEW
+--------
+Build a static website for "Matfyz Quant Club" — a student-run quantitative finance, machine learning, data science, and mathematics club based at the Faculty of Mathematics and Physics (Matfyz), Charles University in Prague. The site will be hosted on GitHub Pages. It should be a single-page or multi-page static site built with plain HTML, CSS, and vanilla JavaScript (no build tools, no frameworks, no npm). Everything must work by simply opening index.html in a browser or deploying to GitHub Pages as-is.
+
+
+DESIGN DIRECTION
+----------------
+Aesthetic: "Deep Sea" — a dark, technical, data-science-inspired look that blends deep navy blue with teal-to-emerald green accents. The overall feel should be sophisticated and technical, evoking quantitative thinking, neural networks, and financial data — but not corporate or generic. It should feel like a club of sharp, ambitious students, not a bank.
+
+Color palette:
+  - Background: #011627 (dark blue-black)
+  - Primary accent: #2ec4b6 (teal)
+  - Secondary accent: #20bf55 (emerald green)
+  - Gradient accent: linear-gradient from #0f9b8e to #20bf55 (use sparingly for buttons, highlights, decorative elements)
+  - Primary text: #fdfffc (clean white)
+  - Muted/secondary text: #8892b0 (slate gray)
+  - Card/section backgrounds: rgba(255,255,255,0.03) to rgba(255,255,255,0.06) with subtle borders
+
+Typography:
+  - Use Google Fonts. Pick a distinctive display/heading font (suggestions: "Space Mono", "JetBrains Mono", "Fira Code" for a technical/monospace feel, or "Clash Display", "Cabinet Grotesk", "Satoshi" for a modern geometric feel). Do NOT use Inter, Roboto, or Arial.
+  - Body text should be clean and readable — a good sans-serif like "General Sans", "Switzer", or "DM Sans".
+  - Code-style accents (monospace snippets, terminal-like elements) can be sprinkled in to reinforce the quant/technical identity.
+
+Animated hero background:
+  - Use Vanta.js NET effect for the hero section background. This creates floating dots connected by lines that respond to mouse movement — looks like a neural network / graph structure.
+  - Include Three.js (r134) and vanta.net.min.js via CDN (jsdelivr or cdnjs).
+  - Configure the NET effect with colors matching the palette: teal dots/lines on the dark background.
+  - The animation should ONLY be in the hero section, not the full page.
+  - Example config:
+      VANTA.NET({
+        el: "#hero",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        color: 0x2ec4b6,
+        backgroundColor: 0x011627,
+        points: 8,
+        maxDistance: 23,
+        spacing: 18,
+        showDots: true
+      })
+
+Layout and style notes:
+  - Clean, generous whitespace. Content should breathe.
+  - Cards with subtle glass-morphism (translucent backgrounds, soft borders, maybe a faint backdrop-filter blur).
+  - Smooth scroll behavior between sections.
+  - Subtle fade-in animations on scroll for sections (use IntersectionObserver + CSS transitions, no libraries).
+  - Navigation should be a fixed top bar that becomes slightly opaque on scroll.
+  - Mobile responsive — hamburger menu on small screens.
+  - No emojis in the actual website content. Professional but not stiff.
+
+
+CONTENT AND SECTIONS
+---------------------
+The website is a single-page scrolling site with the following sections. Use the content from the club's vision document below to fill these in. Where exact text is not provided, write concise, compelling copy that matches the club's voice: ambitious, intellectual, collaborative, slightly intense.
+
+1. HERO SECTION
+   - Vanta.js NET animated background (full viewport height)
+   - Club name: "Matfyz Quant Club"
+   - Tagline: something like "Where mathematics meets markets." or "Excellence through collaboration." — keep it short and punchy.
+   - A brief one-liner description (1-2 sentences max)
+   - Two CTA buttons: "Join Us" (links to a join/contact section or external form) and "Learn More" (smooth scrolls down)
+
+2. ABOUT / MISSION
+   - Brief history: started from a shared interest in quantitative finance — a field at the intersection of math, CS, and finance. Evolved into a community where members learn from each other, teach each other, and grow together.
+   - Core philosophy: inspired by Feynman's method — if you can explain it simply, you understand it deeply. Peer-teaching model.
+   - Emphasize: open to all years and backgrounds, community-driven, collaborative, not just about quant finance — about excellence and problem-solving in general.
+
+3. CORE PRINCIPLES (can be part of About or a separate small section)
+   Display as 3 cards or visual blocks:
+   - "Learn Together, Grow Together" — a class where everyone improves others' knowledge and everyone helps others learn.
+   - "Open to All" — students from all years and backgrounds welcome.
+   - "The Feynman Method" — peer-teaching model: explaining complex concepts simply is the best way to deeply understand them.
+
+4. FOCUS AREAS
+   Display the four fields as cards or a grid with icons or subtle decorative elements:
+   - Quantitative Finance
+   - Machine Learning
+   - Data Science
+   - Mathematics (Probability & Statistics, Linear Algebra)
+   Each card can have a 1-2 sentence description.
+
+5. HOW WE WORK (Club Structure — Two Pillars)
+   This is important — the club operates on two parallel tracks:
+
+   Pillar 1: "The Problem-Solving Gym"
+   - Goal: achieve excellence in problem-solving (top priority).
+   - Inspired by Stanford's Quant Gym.
+   - Weekly meetings solving non-standard probability-style problems from Peter Winkler's puzzle books, Quant Questions website, and LeetCode-style algorithm problems.
+   - Belief that problem-solving patterns can be learned through consistent practice.
+   - Periodic assessment tests where members bring their own favorite problems.
+
+   Pillar 2: "The Applied Project Lab"
+   - Goal: develop practical hands-on skills in coding, research, and model implementation.
+   - Teams participate in external hackathons (e.g., Qminers Hackathon) and conduct internal group projects.
+   - Multi-level participation: junior members learn fundamentals while senior members work on advanced models — everyone contributes and benefits.
+
+   Display these two pillars side by side or as two prominent cards.
+
+6. EVENTS / TIMELINE (optional, can be simple)
+   - A brief section showing upcoming or recent activities.
+   - Can be a simple vertical timeline or card-based layout.
+   - Content can be placeholder for now with example events like "Weekly Problem-Solving Session", "Qminers Hackathon", "Internal Project Kick-Off".
+
+7. JOIN US / CONTACT
+   - Call to action to join the club.
+   - Links to communication channels (placeholders for now): Discord, Telegram, email, or a Google Form link.
+   - Can include a simple "Interested? Get in touch." message with icon links to social/communication platforms.
+
+8. FOOTER
+   - Club name, university affiliation ("Faculty of Mathematics and Physics, Charles University, Prague")
+   - Social/contact icon links
+   - Small copyright line
+
+
+TECHNICAL REQUIREMENTS
+----------------------
+- Pure HTML + CSS + vanilla JS. No React, no Vue, no build tools, no npm.
+- All external resources loaded via CDN (Google Fonts, Three.js, Vanta.js, any icon library like Lucide or Font Awesome).
+- File structure:
+    /index.html
+    /css/style.css
+    /js/main.js
+    /assets/   (for any images or SVGs if needed)
+- The site must work when opened directly as a file and when deployed to GitHub Pages.
+- Responsive design: looks good on desktop (1200px+), tablet (768px), and mobile (375px).
+- Smooth scrolling, scroll-triggered fade-in animations, fixed navbar.
+- Semantic HTML (sections, nav, header, footer, etc.).
+- The Vanta.js effect should gracefully degrade — if the script fails to load, the hero should still look good with the dark background color.
+- Keep total page weight reasonable. No huge images. Use SVG icons where possible.
+
+
+REFERENCE SITES FOR INSPIRATION
+---------------------------------
+- rutgersqfc.com — dark theme, modern, engaging
+- quantsc.org — clean, professional, recruiting-focused
+- betasigmaclub.com — good structure: mission, team, projects
+- cuai.github.io — GitHub Pages hosted, research-focused, minimal but effective
+- vantajs.com/?effect=net — for the animated background effect
+
+
+SUMMARY
+-------
+The deliverable is a complete, deploy-ready static website for the Matfyz Quant Club. It should look polished and professional — on par with the best student club websites. The "Deep Sea" dark theme with teal/green accents and the Vanta.js NET animated hero should make it visually distinctive. The content should convey that this is a serious, ambitious, and welcoming community of students passionate about quantitative thinking and problem-solving.
